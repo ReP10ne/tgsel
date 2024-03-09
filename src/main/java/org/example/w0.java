@@ -12,7 +12,7 @@ public class w0 {
         WebDriver driver = new ChromeDriver();
 
         driver.get("https://www.ugrasu.ru/timetable/faculty/163");
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 
         WebElement web = driver.findElement(By.xpath("//*[@id=\"app\"]/div/div/div/div/div/div[2]/div[7]"));
         web.click();
