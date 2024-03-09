@@ -22,7 +22,6 @@ public class tg extends TelegramLongPollingBot {
         return "";
     }
 
-
     public void sendMsg(Message message, String text) {
         SendMessage sendMessage = new SendMessage();
         sendMessage.enableMarkdown(true);
