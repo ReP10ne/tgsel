@@ -1,15 +1,14 @@
-package org.example;
+package org.example.telegram;
 
+import org.example.selenium.page;
+import org.example.selenium.page_next;
+import org.example.selenium.page_prev;
+import org.example.text.start;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
-import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
-import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardRow;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class tg extends TelegramLongPollingBot {
 
@@ -31,26 +30,7 @@ public class tg extends TelegramLongPollingBot {
         sendMessage.setReplyToMessageId(message.getMessageId());
         sendMessage.setText(text);
 
-        ReplyKeyboardMarkup keyboardMarkup = new ReplyKeyboardMarkup();
-        List<KeyboardRow> keyboardRows = new ArrayList<>();
-        KeyboardRow row = new KeyboardRow();
-
-        row.add("Предыдущая неделя");
-        keyboardRows.add(row);
-
-        row = new KeyboardRow();
-        row.add("Эта неделя");
-        keyboardRows.add(row);
-
-        row = new KeyboardRow();
-        row.add("Следующая неделя");
-        keyboardRows.add(row);
-
-        keyboardMarkup.setKeyboard(keyboardRows);
-        sendMessage.setReplyMarkup(keyboardMarkup);
-
-
-
+        keyboard.start();
 
         try {
             execute(sendMessage);
@@ -66,16 +46,16 @@ public class tg extends TelegramLongPollingBot {
         if (message != null && message.hasText()) {
             switch (message.getText()) {
                 case "/start":
-                    sendMsg(message, start.main());
+                    sendMsg(message, start.start());
                     break;
                 case "Эта неделя":
-                    sendMsg(message, w1.main());
+                    sendMsg(message, page.start());
                     break;
                 case "Следующая неделя":
-                    sendMsg(message, w2.main());
+                    sendMsg(message, page_next.start());
                     break;
                 case "Предыдущая неделя":
-                    sendMsg(message, w0.main());
+                    sendMsg(message, page_prev.start());
                     break;
             }
         }

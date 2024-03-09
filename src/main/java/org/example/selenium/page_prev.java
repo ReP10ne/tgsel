@@ -1,4 +1,4 @@
-package org.example;
+package org.example.selenium;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -7,8 +7,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.concurrent.TimeUnit;
 
-public class w2 {
-    public static String main(){
+public class page_prev {
+    public static String start(){
         WebDriver driver = new ChromeDriver();
 
         driver.get("https://www.ugrasu.ru/timetable/faculty/163");
@@ -17,7 +17,7 @@ public class w2 {
         WebElement web = driver.findElement(By.xpath("//*[@id=\"app\"]/div/div/div/div/div/div[2]/div[7]"));
         web.click();
 
-        WebElement nextweek = driver.findElement(By.xpath("//*[@id=\"app\"]/div/div/div[2]/div[2]/div[2]/div/div[1]/div[3]"));
+        WebElement nextweek = driver.findElement(By.xpath("//*[@id=\"app\"]/div/div/div[2]/div[2]/div[2]/div/div[1]/div[1]"));
         nextweek.click();
 
         WebElement week = driver.findElement(By.xpath("//*[@id=\"app\"]/div/div/div[2]/div[2]/div[2]/div/div[1]/div[2]"));
@@ -51,7 +51,7 @@ public class w2 {
                 .findElement(By.xpath("//*[@id=\"dayWeek6\"]/div[2]/div[3]/div/div[3]/div/div[1]/div"));
         WebElement d6o3 = driver
                 .findElement(By.xpath("//*[@id=\"dayWeek6\"]/div[2]/div[4]/div/div[3]/div/div[1]/div"));
-        String week2=
+        String week3=
                 "Расписание группы 1ИС10 \nНа " +week.getText()+
                         "\n\nПонедельник\n"
                         +d1o1.getText()+
@@ -73,7 +73,7 @@ public class w2 {
                         d6o3.getText()+"\n";
 
         driver.quit();
-        System.out.println(week2);
-        return week2;
+        System.out.println(week3);
+        return week3;
     }
 }
