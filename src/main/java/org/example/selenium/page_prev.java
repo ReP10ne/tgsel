@@ -71,7 +71,6 @@ public class page_prev {
                         d6o1.getText()+"\n"+
                         d6o2.getText()+"\n"+
                         d6o3.getText()+"\n";
-
         driver.quit();
         System.out.println(week3);
         return week3;

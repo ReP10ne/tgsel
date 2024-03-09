@@ -15,6 +15,9 @@ public class page_next {
         driver.get("https://www.ugrasu.ru/timetable/faculty/163");
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 
+        WebElement web = driver.findElement(By.xpath("//*[@id=\"app\"]/div/div/div/div/div/div[2]/div[7]"));
+        web.click();
+
         WebElement nextweek = driver.findElement(By.xpath("//*[@id=\"app\"]/div/div/div[2]/div[2]/div[2]/div/div[1]/div[3]"));
         nextweek.click();
 
